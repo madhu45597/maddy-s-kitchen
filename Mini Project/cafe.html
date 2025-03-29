@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Cafe Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0c0c0c;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        #home {
+            position: relative;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/originals/6c/c5/36/6cc536fb204a9787efa4a2cefd3c6dc6.jpg') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+
+        #coffee ,#pastries, #sandwich, #burger, #pizza, #mocktail, #chicken{
+            position: relative;
+        }
+
+        #coffee::before #coffee, #pastries, #sandwich, #burger, #pizza, #mocktail, #chicken {
+        display: none; /* Hide all sections initially */
+
+
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.pinimg.com/474x/21/e6/47/21e647134ecbe3dbb1d7402b48201e58.jpg') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border-radius: 20px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff2600;
+        }
+
+        .section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s ease-in-out;
+}
+
+.selected-item {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.selected-item img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.8);
+    display: none;
+}
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .section h1, .section h2, .section p {
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background: #ff0000;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #f4f4f4;
+            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.8);
+            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+
+            transform: translateY(-8px);
+            box-shadow: 0px 8px 20px rgba(255, 0, 0, 1);
+        }
+
+        .menu-item img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .menu-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        #about {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;  /* Ensures the section takes full screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 40px;
+    overflow: hidden; /* Prevents content from spilling out */
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.pinimg.com/474x/6f/79/8d/6f798d99ef4b1e488532d63969d7a51f.jpg') no-repeat center center/cover;
+    opacity: 0.3;  
+    z-index: -1;
+}
+
+.about-content {
+    max-width: 800px; 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative; /* Ensures content stays within the section */
+}
+
+.about-content h2 {
+    color: #ff2600;  
+    font-size: 1.8rem;
+    margin-top: 15px;
+}
+
+.about-content p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+
+        #booking form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+#booking input, #booking button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#booking input {
+    color: white;
+}
+
+#booking button {
+    background: #ff2600;
+    color: white;
+    cursor: pointer;
+}
+
+#booking button:hover {
+    background: #ff2200;
+}
+
+#confirmation {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#booking {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 2rem;
+    color: white;
+}
+
+#booking::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.pinimg.com/736x/22/a9/0e/22a90eab4bb4304f50e93c510d9823b5.jpg') no-repeat center center/cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+#contact {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.pinimg.com/474x/a3/e2/f3/a3e2f3318f6550e2c72caad2d36bbbaa.jpg') no-repeat center center/cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Contact form styling */
+.contact-info p {
+    margin: 10px 0;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+}
+
+#contact input, #contact textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#contact button {
+    background: #ff2600;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background: #ff2200;
+}
+
+/* Add an image in the contact section */
+.contact-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+    
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styling */
+.animated-btn {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 2s ease, background-color 2s ease;
+}
+
+/* Hover Effect */
+.animated-btn:hover {
+    background-color: #ff0000;
+    transform: scale(1.1);
+}
+
+/* Button Click Effect */
+.animated-btn:active {
+    transform: scale();
+}
+
+   </style>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const sections = {
+        "Coffee": { 
+            section: document.getElementById("coffee"), 
+            bg: "https://i.pinimg.com/474x/21/e6/47/21e647134ecbe3dbb1d7402b48201e58.jpg"
+        },
+        "Pastries": { 
+            section: document.getElementById("pastries"), 
+            bg: "https://i.pinimg.com/474x/bf/41/aa/bf41aa06c779b8e46de8c784de052b49.jpg"
+        },
+        "Sandwich": { 
+            section: document.getElementById("sandwich"), 
+            bg: "https://i.pinimg.com/474x/7f/71/b3/7f71b3d3b8be4fdf00e12a4c4909634d.jpg"
+        },
+        "Burger": { 
+            section: document.getElementById("burger"), 
+            bg: "https://i.pinimg.com/474x/b7/91/af/b791af0a44c4f6314179f76b808c3c73.jpg"
+        },
+        "Pizza": { 
+            section: document.getElementById("pizza"), 
+            bg: "https://i.pinimg.com/736x/37/b6/60/37b660cb40988dda83c8d345f62c83da.jpg"
+        },
+        "Mocktail": { 
+            section: document.getElementById("mocktail"), 
+            bg: "https://i.pinimg.com/474x/e7/6f/1f/e76f1f51496bdc53985f34191e53b837.jpg"
+        },
+        "Chicken": { 
+            section: document.getElementById("chicken"), 
+            bg: "https://i.pinimg.com/474x/61/3f/3f/613f3fa7d7901ce30a3406be2442526e.jpg"
+        },
+    };
+
+    function applyBackground(section, bgUrl) {
+        section.style.background = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${bgUrl}')`;
+        section.style.backgroundSize = "cover";
+        section.style.backgroundPosition = "center";
+    }
+
+    // Show "Coffee" section by default
+    applyBackground(sections["Coffee"].section, sections["Coffee"].bg);
+    sections["Coffee"].section.style.display = "block";
+
+    document.querySelectorAll(".menu-item h3").forEach(item => {
+        item.parentElement.addEventListener("click", function () {
+            Object.values(sections).forEach(({ section }) => section.style.display = "none");
+            
+            const selected = sections[item.innerText];
+            if (selected) {
+                selected.section.style.display = "block";
+                applyBackground(selected.section, selected.bg);
+                selected.section.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+});
+
+    </script>
+    
+    
+    
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home" class="section">
+        <h1 class="fade-in">Welcome to Maddy's Kitchen</h1>
+        <p class="fade-in">Your perfect place for food & pastries</p>
+       
+
+        <div class="menu">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/e6/66/27/e666274ae48540fa878bd49965fd36ba.jpg">
+                <h3>Coffee</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/25/61/2e/25612eca3bf606d5171ec1310965a1f5.jpg">
+                <h3>Pastries</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/83/8a/4f/838a4f174f4eff556a4bb4fc5273fcf5.jpg">
+                <h3>Sandwich</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/c7/53/92/c7539228118813af7ae4e9fbe29e62f3.jpg">
+                <h3>Pizza</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/4f/ff/56/4fff56e06329fbc12cfeba9bd12b9638.jpg">
+                <h3>Burger</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/ee/3f/42/ee3f42ae97d810aa1e73c78d2c95cba1.jpg">
+                <h3>Mocktail</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/9c/5a/fe/9c5afe59aa118a1f5f1649c5ddef26eb.jpg">
+                <h3>Chicken</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="coffee" class="section">
+        <h1>Coffee Varieties</h1>
+        <div class="menu">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/7c/ff/92/7cff9259605cabc4cc2a9e9ee37018ea.jpg">
+                <h3>Espresso</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/8f/d5/0f/8fd50f8f3e94ba25728789876e6d29dc.jpg">
+                <h3>Latte</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/f7/e6/1b/f7e61b4cb516053e89210a0000884495.jpg">
+                <h3>Cappuccino</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/d6/2e/f8/d62ef88ada1b1ca1d3dca519bf7644ef.jpg">
+                <h3>Americano</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/ff/42/83/ff42838d01f58f8b641deb2058cdb524.jpg">
+                <h3>Mocha</h3>
+            </div>
+        </div>
+    </section>
+    <section id="pastries" class="section">
+        <h1>Pastries Varieties</h1>
+        <div class="menu">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/ad/9d/17/ad9d179d29a1c33978878e544f5f9b1f.jpg">
+                <h3>Cheese cake</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/a1/b8/ac/a1b8ac0bbc69170dc251b8c3ca16d5bc.jpg">
+                <h3>Chocolate Muffin</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/91/05/e3/9105e3688a5dceb570d5f634806a6602.jpg">
+                <h3>Strawberry Danish</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/ad/b0/99/adb099ec18a97f04cf6668e2b9313e74.jpg">
+                <h3>blueberry </h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/2c/30/24/2c302496197d48115f20a161aa49a9ea.jpg">
+                <h3>Choco truffle</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/a1/c0/d2/a1c0d2d8b1eb42e27fafaac412a42e12.jpg">
+                <h3>Doughnut</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/99/9a/d5/999ad589c7b6e32f2c2ce4974fc2608f.jpg">
+                <h3>Brownie</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/474x/cf/9b/af/cf9bafa8f904bb4c2aacf06cebf46331.jpg">
+                <h3>croissants</h3>
+            </div>
+        </div>
+    </section>
+    <section id="sandwich" class="section">
+        <h1>Sandwich Varieties</h1>
+        <div class="menu">
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/2a/35/8e/2a358e3f70409f5203d5e3c9f9a01ffd.jpg"><h3>Club Sandwich</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/7a/b8/0c/7ab80cd51c85830a9191d2958f7005d5.jpg"><h3>Grilled Cheese</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/36/85/c0/3685c069ae36110335457c5cc82cf140.jpg"><h3>Panini</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/ae/ae/d6/aeaed6bec36f22b475f6a09dccf0f434.jpg"><h3>Veggie Sandwich</h3></div>
+        </div>
+    </section>
+    
+    <section id="burger" class="section">
+        <h1>Burger Varieties</h1>
+        <div class="menu">
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/17/b6/13/17b6137cf10e6976073afd4181d2392e.jpg"><h3>Paneer Burger</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/71/f8/dd/71f8dd52a02a233c46f1ab4d88d22f7a.jpg"><h3>Chicken Burger</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/e8/71/17/e87117318770c5416aefdbeed7b32d33.jpg"><h3>fried Burger</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/46/11/8f/46118f1a43779595e68d6520a3ab721c.jpg"><h3>BBQ Burger</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/8b/ca/db/8bcadb01d9de6142d3736cc3da137bb1.jpg"><h3>veggie Burger</h3></div>
+        </div>
+    </section>
+    
+    <section id="pizza" class="section">
+        <h1>Pizza Varieties</h1>
+        <div class="menu">
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/62/a0/50/62a050cfa783c0f897bcf25325be5fac.jpg"><h3>Margherita</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/b1/e6/4b/b1e64bdcaa0d18542c5cdae49990608f.jpg"><h3>Pepperoni</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/b3/12/04/b31204c1c22668c124f750f79c2f5c6e.jpg"><h3>BBQ Chicken</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/46/cf/16/46cf1697ac598bd7d8554af55b7b8473.jpg"><h3>Veggie Pizza</h3></div>
+        </div>
+    </section>
+    
+    <section id="mocktail" class="section">
+        <h1>Mocktail Varieties</h1>
+        <div class="menu">
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/f0/9a/8f/f09a8f2d98aed40149636af13c400466.jpg"><h3>Pina Colada</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/57/cd/dd/57cddd925ee9c23164c2cfb69faf0e92.jpg"><h3>BLUE LAGOON</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/ee/f5/cc/eef5cc27abfe2a9f7c89a9f4ec86d59c.jpg"><h3>VIRGIN MOJITO</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/f3/11/15/f3111596ddbaeef026fb7323aa7532b0.jpg"><h3>Strawberry</h3></div>
+        </div>
+    </section>
+    
+    <section id="chicken" class="section">
+        <h1>Chicken Varieties</h1>
+        <div class="menu">
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/4f/ed/02/4fed027e6c8f65e84e1ebe1fa9678018.jpg"><h3>Fried Chicken</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/de/fd/2b/defd2bdf8164ec987a5a9a46442abf75.jpg"><h3>Grilled Chicken</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/38/3b/6b/383b6b9552fae24de3a6e8ef38eb55ac.jpg"><h3>STRIPS</h3></div>
+            <div class="menu-item"><img src="https://i.pinimg.com/474x/39/e9/56/39e9569d6f4c10ead3c6b1bbd26b62ff.jpg"><h3>POPCORN</h3></div>
+        </div>
+    </section>
+    <section id="booking" class="section">
+        <h1>Book a Table</h1>
+        <p>Reserve your table now!</p>
+        <form id="booking-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <input type="number" id="guests" placeholder="No. of Guests" min="1" required>
+            <button class="animated-btn">Book Now</button>
+
+        </form>
+        <p id="confirmation" style="display:none; margin-top: 15px; color: rgb(255, 0, 0);">Your table has been booked!</p>
+    </section>
+
+   <!-- About Section -->
+<section id="about" class="section">
+    <h1>About Maddy's Kitchen</h1>
+    <p>Welcome to Maddy's Kitchen, where every dish tells a story! 🍽️</p>
+    
+    <div class="about-content">
+        <h2>🏨 Introduction</h2>
+        <p>Located in the heart of the city, Maddy's Kitchen offers a unique blend of modern comfort and traditional hospitality.</p>
+        
+        <h2>📖 Our Story</h2>
+        <p>Founded in 2024, our journey began with a passion for serving delicious, high-quality food in a cozy environment.</p>
+
+        <h2>🏡 Accommodation & Facilities</h2>
+        <p>Enjoy a comfortable dining experience with indoor and outdoor seating, free Wi-Fi, and live music nights.</p>
+
+    </div>
+</section>
+
+    
+    <section id="contact" class="section">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you!</p>
+    
+        <!-- Add a contact image -->
+        <img src="https://i.pinimg.com/474x/a3/e2/f3/a3e2f3318f6550e2c72caad2d36bbbaa.jpg" alt="Contact Us" class="contact-image">
+    
+        <div class="contact-info">
+            <p><strong>📍 Address:</strong> 123, Coffee Street, Chennai, India</p>
+            <p><strong>📞 Phone:</strong> +91 98765 43210</p>
+            <p><strong>📧 Email:</strong> info@maddyskitchen.com</p>
+        </div>
+    
+        <form id="contact-form">
+            <input type="text" id="contact-name" placeholder="Your Name" required>
+            <input type="email" id="contact-email" placeholder="Your Email" required>
+            <textarea id="contact-message" placeholder="Your Message" rows="4" required></textarea>
+            <button class="animated-btn">Send Message</button>
+
+        </form>
+    
+        <p id="contact-confirmation" style="display:none; margin-top: 15px; color: rgb(255, 0, 0);">
+            Your message has been sent successfully!
+        </p>
+        
+    </section>
+    
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent actual form submission
+    
+            // Show the confirmation message
+            document.getElementById("contact-confirmation").style.display = "block";
+    
+            // Clear input fields after submission
+            document.getElementById("contact-name").value = "";
+            document.getElementById("contact-email").value = "";
+            document.getElementById("contact-message").value = "";
+    
+            // Hide confirmation message after 3 seconds
+            setTimeout(() => {
+                document.getElementById("contact-confirmation").style.display = "none";
+            }, 3000);
+        });
+    </script>
+    
+    
+    
+</body>
+</html>
